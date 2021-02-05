@@ -4,9 +4,10 @@ const data = [
     { type: 'Php', content: 'php哪家强' },
     { type: 'Python', content: 'python哪家强' },
 ]
-// 安全类写法 防止别人忘记写 new
+//  简单工厂模式: 安全类写法 防止别人忘记写 new
 const Factory = function (type,content) { 
     if (this instanceof Factory) {
+        // 精华: 就是根据传进来的type new不同的类
         const className = this[type](content);
         return new className;
     }
