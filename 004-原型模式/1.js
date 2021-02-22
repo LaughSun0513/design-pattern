@@ -4,7 +4,7 @@ var log = console.log;
 var LoopImages = function (imgsArr, container) { 
     this.imgsArr = imgsArr;
     this.container = container;
-    this.createImage = function () { };
+    this.createImage = function () { }; // 缺点: 每次这俩方法都要创建 但是下面又没用到 需要覆盖重写 造成浪费
     this.changeImage = function () { };
 }
 // 上下切换类
