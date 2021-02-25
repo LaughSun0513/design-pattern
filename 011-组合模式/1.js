@@ -10,6 +10,7 @@ class FindPeople {
     }
     add(oneXiaodi) { 
         this.xiaodiArr.push(oneXiaodi);
+        return this;
     }
     remove(oneXiaodi) { 
         const deleteXiaoDiIndex = this.xiaodiArr.indexOf(oneXiaodi);
@@ -23,6 +24,7 @@ class FindPeople {
     }
 }
 
+/*
 const CEO = new FindPeople('张三', 'CEO', 20000000);
 const Boss = new FindPeople('李四', '老板', 10000000);
 
@@ -38,6 +40,23 @@ HR.add(FE_BOSS);
 
 FE_BOSS.add(FE1);
 FE_BOSS.add(FE2);
+*/
+// 套娃式写法
+const CEO = new FindPeople('张三', 'CEO', 20000000)
+    .add(
+        new FindPeople('李四', '老板', 10000000)
+            .add(
+                new FindPeople('妲己1号', 'HR', 5000)
+                    .add(
+                        new FindPeople('前端小张', 'FE主管', 30000)
+                            .add(
+                                new FindPeople('前端小三', 'FE小弟', 10000)
+                            ).add(
+                                new FindPeople('前端小四', 'FE小弟', 10000)
+                            )
+            )
+        )
+    )
 
 function printXiaoDi(boss) {
     const xiaoDiArr = boss.getXiaoDi();
